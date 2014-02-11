@@ -2,23 +2,17 @@ require 'bundler'
 Bundler.require 
 require './lib/world'
 require './lib/cell.rb'
+require './lib/play.rb'
 
 module Life 
 	class Game < Sinatra::Application
+    register Gon::Sinatra
 		get '/' do 
-			@game = World.new(10,10)
-      @game.populate_random	
-      haml :index
+			@play = Play.new(World.new(10,10))
+      @board = @play.world.board 
+      gon.board = board 
 		end 
 	end 
 
-  helpers do
-    def run_game 
-      @array = []
-      loop do
-        @array << @game.tick!
-      end 
-    end 
-  end 
 end 
 

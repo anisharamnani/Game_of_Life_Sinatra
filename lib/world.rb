@@ -25,8 +25,8 @@ class World
 
 
 	def tick!
-		@board.each do |array|
-			array.each do |cell|
+		@board.each do |row|
+			row.each do |cell|
 				cell.change_state 
 				cell.transition_state 
 			end 
@@ -35,8 +35,8 @@ class World
 	end 
 
 	# def display
-	# 	@board.each do |array|
-	# 		array.each do |cell|
+	# 	@board.each do |row|
+	# 		row.each do |cell|
 	# 			print "\e[?25l" # hides the cursor
 	# 			if cell.alive?
 	# 				print " * "
