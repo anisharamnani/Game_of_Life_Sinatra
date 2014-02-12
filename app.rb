@@ -9,7 +9,13 @@ module Life
 	class Game < Sinatra::Application
     helpers Sinatra::JSON
 
-		get '/' do 
+    configure do
+      set :root, File.dirname(__FILE__)
+      set :public_folder, 'public/app'
+    end
+
+		get '/' do
+      File.read(File.join('public/app', 'index.html')) 
 		end 
 
     get '/random_board' do 
@@ -19,6 +25,8 @@ module Life
       turns << board.cell_states
       json turns
     end	
+
+
 
   end 
 end 
