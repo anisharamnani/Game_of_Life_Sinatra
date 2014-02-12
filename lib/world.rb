@@ -34,24 +34,17 @@ class World
 		@board
 	end 
 
-	# def display
-	# 	@board.each do |row|
-	# 		row.each do |cell|
-	# 			print "\e[?25l" # hides the cursor
-	# 			if cell.alive?
-	# 				print " * "
-	# 			else 
-	# 				print " . "
-	# 			end 
-	# 		end 
-	# 		puts
-	# 	end 
-	# 	sleep(0.2) # sleeps -- makes the program wait a small amount of time so it isn't too fast. you can get rid of this or keep it, whatever you like. won't affect the program itself. just the display. :)
-	# 	puts "\e[H" # clears the screen so that it looks like it's animating instead of printing all the way down
-	# end 
+	def just_the_states
+	board.each do |row|
+	  row.each do |cell|
+	    cell.alive? ? cells << 1 : cells << 0 
+	  end 
+	  @states << states_array  
+	end
+	@states = states_array.to_json
+	end
+
 end 
 
 
-# r = rand(1..5)
-# 
 
