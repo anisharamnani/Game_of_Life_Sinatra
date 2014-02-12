@@ -3,8 +3,8 @@ source 'https://rubygems.org'
 gem 'sinatra'
 gem 'haml'
 gem 'debugger'
-gem 'json'
-gem 'gon-sinatra'
+gem 'sinatra-contrib' #bonus files in sinatra
+gem 'multi_json' #bug fix for json
 
 group :development do 
 	gem "shotgun" 
