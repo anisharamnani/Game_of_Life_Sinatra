@@ -1,4 +1,4 @@
-require './lib/cell'
+	require './lib/cell'
 
 puts `clear` # just clears the terminal window so you dont have leftover characters
 
@@ -34,14 +34,12 @@ class World
 		@board
 	end 
 
-	def just_the_states
-	board.each do |row|
-	  row.each do |cell|
-	    cell.alive? ? cells << 1 : cells << 0 
-	  end 
-	  @states << states_array  
-	end
-	@states = states_array.to_json
+	def cell_states
+		board.map do |row|
+	  	row.map do |cell|
+	    	cell.alive? 
+		  end  
+		end
 	end
 
 end 
