@@ -8,7 +8,6 @@ body{
 }
 
 .cell{
-  display: inline-block;
   height: 15px;
   width: 15px;
   margin: 2px;
@@ -18,6 +17,10 @@ body{
   background-color: black;
 }
 
-.dead{
+.dead {
   background-color: red;
+}
+
+.cell-container {
+  display: inline-block;
 }

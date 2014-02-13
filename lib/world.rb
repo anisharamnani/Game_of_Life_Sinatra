@@ -28,16 +28,19 @@ class World
 		@board.each do |row|
 			row.each do |cell|
 				cell.change_state 
+			end 
+		end
+		@board.each do |row|
+			row.each do |cell|
 				cell.transition_state 
 			end 
 		end
-		@board
 	end 
 
 	def cell_states
 		board.map do |row|
 	  	row.map do |cell|
-	    	cell.alive? 
+	    	cell.state 
 		  end  
 		end
 	end

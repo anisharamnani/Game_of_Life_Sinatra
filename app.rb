@@ -18,15 +18,17 @@ module Life
       File.read(File.join('public/app', 'index.html')) 
 		end 
 
-    get '/random_board' do 
-      board = World.new(10,10)
+    get '/randomboard' do 
+      board = World.new(20,20)
       board.populate_random
       turns = []
       turns << board.cell_states
+      100.times do 
+        board.tick! 
+        turns << board.cell_states 
+      end 
       json turns
     end	
-
-
 
   end 
 end 

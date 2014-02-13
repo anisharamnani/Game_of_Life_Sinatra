@@ -7,7 +7,7 @@ class Cell
 	def initialize (world, x=0, y=0, state)
 		@x = x 
 		@y = y 
-		@state = state
+		@state = @new_state = state
 		@world = world
 		@world.board[x][y] = self
 	end 
