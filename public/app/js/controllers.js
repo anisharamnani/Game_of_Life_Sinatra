@@ -12,7 +12,7 @@ gameoflifeApp.controller('RandBoardCtrl',['$scope', '$http', '$timeout',
         $scope.boards.shift();
         $timeout(nextMove, 1000);
         if ($scope.boards.length < 20 && loading == false){
-          $http.get("http://localhost:4000/tick_board").sucess(function(data){
+          $http.get("http://localhost:4000/tick_board").success(function(data){
             $scope.boards = $scope.boards.concat(data);
             loading = true
           });

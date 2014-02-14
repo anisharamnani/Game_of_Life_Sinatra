@@ -23,6 +23,15 @@ class World
 		end 
 	end 
 
+	def populate states 
+		x.times do |i|
+			@board << []
+			y.times do |j|
+				state = states[i][j]
+				Cell.new(self, i, j, state)
+			end 
+		end 
+	end 
 
 	def tick!
 		@board.each do |row|
