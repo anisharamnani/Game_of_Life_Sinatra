@@ -1,4 +1,4 @@
-	require './lib/cell'
+require './lib/cell'
 
 puts `clear` # just clears the terminal window so you dont have leftover characters
 

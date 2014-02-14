@@ -18,8 +18,8 @@ module Life
       File.read(File.join('public/app', 'index.html')) 
 		end 
 
-    get '/randomboard' do 
-      board = World.new(20,20)
+    get '/random_board' do 
+      board = World.new(50,50)
       board.populate_random
       turns = []
       turns << board.cell_states
