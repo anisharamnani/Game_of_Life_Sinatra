@@ -1,26 +1,49 @@
-body{
-  font-family: ;
+@import url(http://fonts.googleapis.com/css?family=Flamenco);
+
+body {
+  font-family: 'Flamenco', cursive;
   padding: 20px;
+  background-color: burlywood; 
 }
 
-.row{
+h1{
+  text-align: center;
+  margin-bottom: 20px;
+  color: maroon;
+}
+
+.board-wrapper {
+  margin: 0 auto;
+  width: 509px;
+}
+.board {
+  display: inline-block;
+  margin: 0 35px;
+  position: absolute;
+  top: 85px;
+  width: 509px;
+}
+
+.row {
   white-space: nowrap;
-}
-
-.cell{
-  height: 15px;
-  width: 15px;
-  margin: 2px;
-}
-
-.alive {
-  background-color: black;
-}
-
-.dead {
-  background-color: red;
+  margin-bottom: -4px;
 }
 
 .cell-container {
   display: inline-block;
 }
+
+.cell {
+  height: 15px;
+  width: 15px;
+  margin: 1px;
+  border-radius: 80%;
+}
+
+.alive {
+  background-color: maroon;
+}
+
+/*.dead {
+  background-color: white;
+}*/

@@ -8,7 +8,7 @@ require './lib/cell.rb'
 module Life 
 	class Game < Sinatra::Application
     helpers Sinatra::JSON
-    enable :sessions
+    use Rack::Session::Pool
 
     configure do
       set :root, File.dirname(__FILE__)
@@ -20,11 +20,11 @@ module Life
 		end 
 
     get '/random_board' do 
-      board = World.new(10,10)
+      board = World.new(30,30)
       board.populate_random
       turns = []
       turns << board.cell_states
-      5.times do 
+      20.times do 
         board.tick! 
         turns << board.cell_states 
       end 
@@ -33,14 +33,15 @@ module Life
     end	
 
     get '/tick_board' do
-      board = World.new(10,10)
+      board = World.new(30,30)
       board.populate(session[:states])
       turns = []
       turns << board.cell_states
-      5.times do 
+      20.times do 
         board.tick! 
         turns << board.cell_states 
       end 
+      session[:states] = turns[-1]
       json turns
     end 
 
